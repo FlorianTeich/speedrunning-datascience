@@ -17,5 +17,18 @@ poetry init
 poetry add kedro
 poetry shell
 kedro new --starter=spaceflights-pyspark
-
+cd spaceflight-pyspark
+pip install -f requirements.txt
 ```
+
+* remove documentation at the beginning of conf/base/catalog.yaml
+* remove conf/base/parameters_data_science.yaml
+* remove scr/spaceflights_pyspark/pipelines/data_science
+* switch to scr/spaceflights_pyspark/pipelines/data_pipelines/nodes.py and remove all functions
+    * declare first function "create_dataset()"
+* modify the scr/spaceflights_pyspark/pipelines/data_pipelines/pipeline.py:
+    * removed a lot of nodes except for one
+    * edited the sindle node in order to reference our create_dataset function as well as a "raw"-parquet catalog entry
+    * rename the pipeline.py to "create_dataset.py"
+    * editing the __init__.py file in order to reference the renamed create_dataset.py
+

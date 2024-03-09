@@ -31,4 +31,6 @@ pip install -f requirements.txt
     * edited the sindle node in order to reference our create_dataset function as well as a "raw"-parquet catalog entry
     * rename the pipeline.py to "create_dataset.py"
     * editing the __init__.py file in order to reference the renamed create_dataset.py
-
+* removing csv files from /data/01_raw
+* run ```kedro run``` to test our pipeline
+* edit .gitignore in order to ignore parquet, json and csv files

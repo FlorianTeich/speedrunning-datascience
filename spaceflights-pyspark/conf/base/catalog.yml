@@ -2,88 +2,8 @@ raw_data@pandas:
   type: pandas.ParquetDataset
   filepath: data/01_raw/raw_data.parquet
 
-companies:
-  filepath: data/01_raw/companies.csv
-  type: spark.SparkDataset
-  file_format: csv
-  load_args:
-    header: True
-    inferSchema: True
-  save_args:
-    sep: ','
-    header: True
-    mode: overwrite
-
-reviews:
-  filepath: data/01_raw/reviews.csv
-  type: spark.SparkDataset
-  file_format: csv
-  load_args:
-    header: True
-    inferSchema: True
-  save_args:
-    sep: ','
-    header: True
-    mode: overwrite
-
-shuttles@excel:
-  type: pandas.ExcelDataset
-  filepath: data/01_raw/shuttles.xlsx
-
-shuttles@csv:
-  type: pandas.CSVDataset
-  filepath: data/02_intermediate/shuttles.csv
-
-shuttles@spark:
-  filepath: data/02_intermediate/shuttles.csv
-  type: spark.SparkDataset
-  file_format: csv
-  load_args:
-    header: True
-    inferSchema: True
-  save_args:
-    sep: ','
-    header: True
-    mode: overwrite
-
-preprocessed_companies:
-  filepath: data/02_intermediate/preprocessed_companies.csv
-  type: spark.SparkDataset
-  file_format: csv
-  load_args:
-    header: True
-    inferSchema: True
-  save_args:
-    sep: ','
-    header: True
-    mode: overwrite
-
-preprocessed_shuttles:
-  filepath: data/02_intermediate/preprocessed_shuttles.csv
-  type: spark.SparkDataset
-  file_format: csv
-  load_args:
-    header: True
-    inferSchema: True
-  save_args:
-    sep: ','
-    header: True
-    mode: overwrite
-
-preprocessed_reviews:
-  filepath: data/02_intermediate/preprocessed_reviews.csv
-  type: spark.SparkDataset
-  file_format: csv
-  load_args:
-    header: True
-    inferSchema: True
-  save_args:
-    sep: ','
-    header: True
-    mode: overwrite
-
-model_input_table@spark:
-  filepath: data/03_primary/model_input_table.parquet
+raw_data@spark:
+  filepath: data/01_raw/raw_data.parquet
   type: spark.SparkDataset
   file_format: parquet
   load_args:
@@ -94,7 +14,55 @@ model_input_table@spark:
     header: True
     mode: overwrite
 
-regressor:
+preprocessed@spark:
+  filepath: data/02_intermediate/preprocessed.parquet
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+
+preprocessed_train@spark:
+  filepath: data/02_intermediate/preprocessed_train.parquet
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+
+preprocessed_val@spark:
+  filepath: data/02_intermediate/preprocessed_val.parquet
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+
+preprocessed_test@spark:
+  filepath: data/02_intermediate/preprocessed_test.parquet
+  type: spark.SparkDataset
+  file_format: parquet
+  load_args:
+    header: True
+    inferSchema: True
+  save_args:
+    sep: ','
+    header: True
+    mode: overwrite
+
+model:
+  filepath: data/06_models/model.pkl
   type: pickle.PickleDataset
-  filepath: data/06_models/regressor.pickle
-  versioned: true
+  versioned: false

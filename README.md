@@ -34,3 +34,14 @@ pip install -f requirements.txt
 * removing csv files from /data/01_raw
 * run ```kedro run``` to test our pipeline
 * edit .gitignore in order to ignore parquet, json and csv files
+* remove unused entries from catalog.yaml
+* add new catalog entry for reading the parquet file using pyspark
+* copy the create_dataset.py file and rename the copy to "data_preprocessing.py"
+* add a new import statement to the __init__.py
+* add an empty "preprocess_data" function to the nodes.py file
+* reference this function inside the data_preprocessing.py file
+* create new entries inside the catalog.yaml for train, validation and test split
+* add deterministic split function inside nodes.py
+* add seed parameter to parameters_data_processing.yaml
+* add "train_classifier.py" containing the classifier training pipeline
+* add new function to nodes.py for training a classifier

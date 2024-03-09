@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "speedrunning-datascience"
+version = "0.1.0"
+description = ""
+authors = ["Florian Teich <florianteich@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+kedro = "^0.19.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

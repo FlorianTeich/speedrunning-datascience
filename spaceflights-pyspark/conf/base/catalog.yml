@@ -66,3 +66,8 @@ model:
   filepath: data/06_models/model.pkl
   type: pickle.PickleDataset
   versioned: false
+
+log:
+  filepath: data/07_model_output/log.txt
+  type: pickle.PickleDataset
+  versioned: false

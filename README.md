@@ -14,7 +14,7 @@ The goal of this repo is to create a documentation of goals, best practices and 
 
 ```bash
 poetry init
-poetry add kedro
+poetry add kedro mlflow
 poetry shell
 kedro new --starter=spaceflights-pyspark
 cd spaceflight-pyspark

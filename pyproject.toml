@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 kedro = "^0.19.3"
+mlflow = "^2.11.1"
 
 
 [build-system]

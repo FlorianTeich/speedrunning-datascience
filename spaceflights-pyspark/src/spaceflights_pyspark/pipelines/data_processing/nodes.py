@@ -4,6 +4,7 @@ from pyspark.sql import DataFrame as SparkDataFrame
 from pyspark.sql.functions import regexp_replace
 from pyspark.sql.types import DoubleType
 from sklearn.ensemble import RandomForestClassifier
+import typing as t
 
 
 def create_dataset() -> pd.DataFrame:
@@ -65,3 +66,14 @@ def train_classifier(train_data: SparkDataFrame,
     #val_accuracy = accuracy_score(y_val, y_pred)
 
     return clf
+
+def archive(mlflow_uri) -> t.Dict:
+    # Archive the model to the model directory
+    import mlflow
+
+    mlflow.set_tracking_uri(mlflow_uri)
+    with mlflow.start_run() as run:
+        #mlflow.log_artifacts("./conf", artifact_path="experiment/conf")
+        mlflow.log_artifacts("./", artifact_path="experiment")
+
+    return {"logs": f"Model archived in experiment {run.info.experiment_id}"}
